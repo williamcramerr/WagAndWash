@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { CalendarHeader } from "./components/calendar-header";
 import { WeekView } from "./components/week-view";
 import { DayView } from "./components/day-view";
+import { MonthView } from "./components/month-view";
 import { AppointmentCard } from "./components/appointment-block";
 import {
   Sheet,
@@ -22,6 +23,7 @@ import { startOfWeek, format } from "date-fns";
 import { Plus, Phone, Mail, MapPin, Clock, User, Scissors } from "lucide-react";
 import {
   getAppointmentsForWeek,
+  getAppointmentsForMonth,
   getAppointmentsByDate,
   getClientById,
   getPetById,
@@ -42,7 +44,14 @@ export default function CalendarPage() {
   const weekStart = startOfWeek(currentDate, { weekStartsOn: 1 });
   const appointments = view === "week"
     ? getAppointmentsForWeek(weekStart)
+    : view === "month"
+    ? getAppointmentsForMonth(currentDate)
     : getAppointmentsByDate(currentDate);
+
+  const handleDayClick = (date: Date) => {
+    setCurrentDate(date);
+    setView("day");
+  };
 
   const handleAppointmentClick = (appointment: Appointment) => {
     setSelectedAppointment(appointment);
@@ -91,9 +100,13 @@ export default function CalendarPage() {
       )}
 
       {view === "month" && (
-        <div className="flex items-center justify-center h-[400px] border rounded-lg bg-muted/30">
-          <p className="text-muted-foreground">Month view coming soon</p>
-        </div>
+        <MonthView
+          currentDate={currentDate}
+          appointments={appointments}
+          selectedGroomers={selectedGroomers}
+          onDayClick={handleDayClick}
+          onAppointmentClick={handleAppointmentClick}
+        />
       )}
 
       {/* Appointment Detail Sheet */}

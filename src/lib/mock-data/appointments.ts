@@ -578,6 +578,15 @@ export function getAppointmentsForWeek(startDate: Date): Appointment[] {
   });
 }
 
+export function getAppointmentsForMonth(date: Date): Appointment[] {
+  const monthStart = new Date(date.getFullYear(), date.getMonth(), 1);
+  const monthEnd = new Date(date.getFullYear(), date.getMonth() + 1, 0, 23, 59, 59);
+  return appointments.filter((a) => {
+    const aptDate = new Date(a.startTime);
+    return aptDate >= monthStart && aptDate <= monthEnd;
+  });
+}
+
 export function getAppointmentsByPetId(petId: string): Appointment[] {
   return appointments.filter((a) =>
     a.services.some((s) => s.petId === petId)
