@@ -190,12 +190,85 @@ export default function LandingPage() {
 
           {/* Hero Image/Dashboard Preview */}
           <div className="mt-16 mx-auto max-w-5xl">
-            <div className="relative rounded-xl border bg-muted/50 shadow-2xl overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent z-10 pointer-events-none" />
-              <div className="aspect-[16/9] bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <Dog className="h-16 w-16 mx-auto text-primary/50 mb-4" />
-                  <p className="text-muted-foreground">Dashboard Preview</p>
+            <div className="relative rounded-xl border bg-background shadow-2xl overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent z-10 pointer-events-none" />
+              {/* Fake Dashboard UI */}
+              <div className="p-4 bg-muted/30">
+                {/* Top Bar */}
+                <div className="flex items-center justify-between mb-4 px-2">
+                  <div className="flex items-center gap-2">
+                    <Dog className="h-5 w-5 text-primary" />
+                    <span className="font-semibold text-sm">WagAndWash</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="h-8 w-32 bg-muted rounded-md" />
+                    <div className="h-8 w-8 bg-primary/20 rounded-full" />
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  {/* Sidebar */}
+                  <div className="hidden md:block w-48 space-y-1">
+                    {["Dashboard", "Calendar", "Appointments", "Clients", "Pets", "Routes"].map((item, i) => (
+                      <div
+                        key={item}
+                        className={`h-8 px-3 rounded-md flex items-center text-xs ${i === 0 ? "bg-primary/10 text-primary font-medium" : "text-muted-foreground"}`}
+                      >
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Main Content */}
+                  <div className="flex-1 space-y-4">
+                    {/* Stats Row */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                      {[
+                        { label: "Today", value: "8 appts", color: "bg-primary/10" },
+                        { label: "Revenue", value: "$1,247", color: "bg-green-100" },
+                        { label: "Clients", value: "156", color: "bg-blue-100" },
+                        { label: "This Week", value: "$4,892", color: "bg-amber-100" },
+                      ].map((stat) => (
+                        <div key={stat.label} className={`${stat.color} rounded-lg p-3`}>
+                          <p className="text-[10px] text-muted-foreground">{stat.label}</p>
+                          <p className="text-sm font-bold">{stat.value}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Calendar Preview */}
+                    <div className="bg-background rounded-lg border p-3">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-xs font-medium">Today&apos;s Schedule</span>
+                        <span className="text-[10px] text-muted-foreground">January 25, 2025</span>
+                      </div>
+                      <div className="space-y-2">
+                        {[
+                          { time: "9:00 AM", pet: "Max", service: "Full Groom", status: "done" },
+                          { time: "10:30 AM", pet: "Bella", service: "Bath & Brush", status: "active" },
+                          { time: "1:00 PM", pet: "Coco", service: "De-shed", status: "upcoming" },
+                          { time: "3:00 PM", pet: "Duke", service: "Nail Trim", status: "upcoming" },
+                        ].map((appt) => (
+                          <div
+                            key={appt.time}
+                            className={`flex items-center gap-3 p-2 rounded-md text-xs ${
+                              appt.status === "done"
+                                ? "bg-muted/50 text-muted-foreground line-through"
+                                : appt.status === "active"
+                                ? "bg-primary/10 border border-primary/20"
+                                : "bg-muted/30"
+                            }`}
+                          >
+                            <span className="w-16 font-medium">{appt.time}</span>
+                            <span className="flex-1">{appt.pet} - {appt.service}</span>
+                            {appt.status === "active" && (
+                              <span className="text-[10px] bg-primary text-primary-foreground px-1.5 py-0.5 rounded">NOW</span>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
