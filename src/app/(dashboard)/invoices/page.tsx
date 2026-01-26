@@ -171,9 +171,11 @@ export default function InvoicesPage() {
         title="Invoices"
         description="Manage client invoices and billing"
         actions={
-          <Button>
-            <Plus className="h-4 w-4 mr-2" />
-            New Invoice
+          <Button asChild>
+            <Link href="/invoices/new">
+              <Plus className="h-4 w-4 mr-2" />
+              New Invoice
+            </Link>
           </Button>
         }
       />

@@ -24,6 +24,7 @@ const categories = [
 const posts = [
   {
     id: 1,
+    slug: "reduce-no-shows-cancellations",
     title: "10 Ways to Reduce No-Shows and Last-Minute Cancellations",
     excerpt: "No-shows cost groomers thousands each year. Here are proven strategies to minimize cancellations and protect your revenue.",
     category: "Business Growth",
@@ -34,6 +35,7 @@ const posts = [
   },
   {
     id: 2,
+    slug: "ai-powered-smart-scheduling",
     title: "Introducing AI-Powered Smart Scheduling",
     excerpt: "Our new AI feature automatically suggests optimal appointment times based on your history, location, and preferences.",
     category: "Product Updates",
@@ -44,6 +46,7 @@ const posts = [
   },
   {
     id: 3,
+    slug: "mobile-groomer-success-story",
     title: "How Mobile Groomer Lisa Doubled Her Revenue in 6 Months",
     excerpt: "Lisa shares her journey from struggling solo groomer to thriving business owner with a waitlist of eager clients.",
     category: "Success Stories",
@@ -54,6 +57,7 @@ const posts = [
   },
   {
     id: 4,
+    slug: "pricing-guide",
     title: "The Ultimate Guide to Pricing Your Grooming Services",
     excerpt: "Stop undercharging! Learn how to calculate your true costs and set prices that reflect your value.",
     category: "Business Growth",
@@ -64,6 +68,7 @@ const posts = [
   },
   {
     id: 5,
+    slug: "2025-industry-trends",
     title: "2025 Pet Grooming Industry Trends to Watch",
     excerpt: "From eco-friendly products to mobile-first booking, here are the trends shaping the future of pet grooming.",
     category: "Industry News",
@@ -74,6 +79,7 @@ const posts = [
   },
   {
     id: 6,
+    slug: "client-communication-templates",
     title: "5 Client Communication Templates That Save Hours",
     excerpt: "Copy-paste these proven templates for booking confirmations, reminders, and follow-ups.",
     category: "Tips & Tricks",
@@ -153,8 +159,8 @@ export default function BlogPage() {
                 <div className="h-48 bg-gradient-to-br from-primary/20 to-secondary/20" />
                 <CardContent className="p-6">
                   <Badge className="mb-3">{post.category}</Badge>
-                  <h3 className="text-xl font-semibold mb-2 hover:text-primary transition-colors cursor-pointer">
-                    {post.title}
+                  <h3 className="text-xl font-semibold mb-2 hover:text-primary transition-colors">
+                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                   </h3>
                   <p className="text-muted-foreground mb-4">{post.excerpt}</p>
                   <div className="flex items-center gap-4 text-sm text-muted-foreground">
@@ -189,8 +195,8 @@ export default function BlogPage() {
                   <Badge variant="outline" className="w-fit">{post.category}</Badge>
                 </CardHeader>
                 <CardContent>
-                  <h3 className="font-semibold mb-2 hover:text-primary transition-colors cursor-pointer">
-                    {post.title}
+                  <h3 className="font-semibold mb-2 hover:text-primary transition-colors">
+                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                   </h3>
                   <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
                     {post.excerpt}
