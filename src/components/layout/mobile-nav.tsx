@@ -27,6 +27,7 @@ import {
   Settings,
   FileText,
   Clock,
+  Receipt,
 } from "lucide-react";
 
 interface NavItem {
@@ -50,6 +51,7 @@ const moreNavItems: NavItem[] = [
   { name: "Waitlist", href: "/waitlist", icon: Clock },
   { name: "Reports", href: "/reports", icon: BarChart3 },
   { name: "Team", href: "/team", icon: UserCog },
+  { name: "Billing", href: "/billing", icon: Receipt },
   { name: "Settings", href: "/settings", icon: Settings },
 ];
 
