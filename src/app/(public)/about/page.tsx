@@ -259,6 +259,11 @@ export default function AboutPage() {
             <Dog className="h-6 w-6 text-primary" />
             <span className="font-bold">WagAndWash</span>
           </Link>
+          <div className="flex items-center gap-6 text-sm text-muted-foreground">
+            <Link href="/privacy" className="hover:text-foreground">Privacy</Link>
+            <Link href="/terms" className="hover:text-foreground">Terms</Link>
+            <Link href="/contact" className="hover:text-foreground">Contact</Link>
+          </div>
           <p className="text-sm text-muted-foreground">
             © 2025 WagAndWash. All rights reserved.
           </p>

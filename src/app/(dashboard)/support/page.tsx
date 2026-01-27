@@ -292,8 +292,8 @@ export default function HelpPage() {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <a
-              href="#"
+            <Link
+              href="/help"
               className="flex items-center gap-3 p-3 rounded-lg border hover:bg-accent/50 transition-colors"
             >
               <Book className="h-5 w-5 text-muted-foreground" />
@@ -304,35 +304,35 @@ export default function HelpPage() {
                 </p>
               </div>
               <ExternalLink className="h-4 w-4 text-muted-foreground ml-auto" />
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/contact"
               className="flex items-center gap-3 p-3 rounded-lg border hover:bg-accent/50 transition-colors"
             >
               <Dog className="h-5 w-5 text-muted-foreground" />
               <div>
                 <p className="font-medium">Groomer Community</p>
                 <p className="text-sm text-muted-foreground">
-                  Join our Facebook group
+                  Connect with other groomers
                 </p>
               </div>
               <ExternalLink className="h-4 w-4 text-muted-foreground ml-auto" />
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/blog"
               className="flex items-center gap-3 p-3 rounded-lg border hover:bg-accent/50 transition-colors"
             >
               <Video className="h-5 w-5 text-muted-foreground" />
               <div>
-                <p className="font-medium">YouTube Channel</p>
+                <p className="font-medium">Blog & Tutorials</p>
                 <p className="text-sm text-muted-foreground">
                   Tutorials and tips
                 </p>
               </div>
               <ExternalLink className="h-4 w-4 text-muted-foreground ml-auto" />
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/contact"
               className="flex items-center gap-3 p-3 rounded-lg border hover:bg-accent/50 transition-colors"
             >
               <MessageCircle className="h-5 w-5 text-muted-foreground" />
@@ -343,7 +343,7 @@ export default function HelpPage() {
                 </p>
               </div>
               <ExternalLink className="h-4 w-4 text-muted-foreground ml-auto" />
-            </a>
+            </Link>
           </div>
         </CardContent>
       </Card>

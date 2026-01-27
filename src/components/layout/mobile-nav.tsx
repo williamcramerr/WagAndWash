@@ -25,6 +25,8 @@ import {
   BarChart3,
   UserCog,
   Settings,
+  FileText,
+  Clock,
 } from "lucide-react";
 
 interface NavItem {
@@ -44,6 +46,8 @@ const moreNavItems: NavItem[] = [
   { name: "Appointments", href: "/appointments", icon: ClipboardList },
   { name: "Routes", href: "/routes", icon: MapPin },
   { name: "Payments", href: "/payments", icon: CreditCard },
+  { name: "Invoices", href: "/invoices", icon: FileText },
+  { name: "Waitlist", href: "/waitlist", icon: Clock },
   { name: "Reports", href: "/reports", icon: BarChart3 },
   { name: "Team", href: "/team", icon: UserCog },
   { name: "Settings", href: "/settings", icon: Settings },

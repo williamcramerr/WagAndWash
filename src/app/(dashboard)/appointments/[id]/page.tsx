@@ -420,19 +420,19 @@ export default function AppointmentDetailPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="flex items-center gap-3">
+              <Link href={`/team/${groomer?.id}`} className="flex items-center gap-3 hover:bg-muted/50 rounded-lg p-2 -m-2 transition-colors">
                 <Avatar>
                   <AvatarFallback className="bg-primary text-primary-foreground">
                     {groomer?.firstName?.[0]}{groomer?.lastName?.[0]}
                   </AvatarFallback>
                 </Avatar>
                 <div>
-                  <p className="font-medium">{groomer?.firstName} {groomer?.lastName}</p>
+                  <p className="font-medium hover:underline">{groomer?.firstName} {groomer?.lastName}</p>
                   <p className="text-sm text-muted-foreground">
                     {groomer?.specialties?.join(", ")}
                   </p>
                 </div>
-              </div>
+              </Link>
             </CardContent>
           </Card>
 

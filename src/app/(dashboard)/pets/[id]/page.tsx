@@ -389,9 +389,10 @@ export default function PetDetailPage() {
                       .map((s) => getServiceById(s.serviceId)?.name)
                       .filter(Boolean);
                     return (
-                      <div
+                      <Link
                         key={apt.id}
-                        className="flex items-center justify-between p-4 rounded-lg border"
+                        href={`/appointments/${apt.id}`}
+                        className="flex items-center justify-between p-4 rounded-lg border hover:bg-muted/50 transition-colors"
                       >
                         <div className="flex items-center gap-4">
                           <div className="text-center">
@@ -411,7 +412,7 @@ export default function PetDetailPage() {
                           </div>
                         </div>
                         <StatusBadge status={apt.status} />
-                      </div>
+                      </Link>
                     );
                   })}
                 </div>
@@ -445,9 +446,10 @@ export default function PetDetailPage() {
                       .map((s) => getServiceById(s.serviceId)?.name)
                       .filter(Boolean);
                     return (
-                      <div
+                      <Link
                         key={apt.id}
-                        className="flex items-center justify-between p-4 rounded-lg border"
+                        href={`/appointments/${apt.id}`}
+                        className="flex items-center justify-between p-4 rounded-lg border hover:bg-muted/50 transition-colors"
                       >
                         <div className="flex items-center gap-4">
                           <div className="text-center min-w-[80px]">
@@ -472,7 +474,7 @@ export default function PetDetailPage() {
                           </div>
                           <StatusBadge status={apt.status} />
                         </div>
-                      </div>
+                      </Link>
                     );
                   })}
                 </div>

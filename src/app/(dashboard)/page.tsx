@@ -124,8 +124,9 @@ export default function DashboardPage() {
                     );
 
                     return (
-                      <div
+                      <Link
                         key={appointment.id}
+                        href={`/appointments/${appointment.id}`}
                         className="flex items-center gap-4 p-4 rounded-lg border bg-card hover:bg-muted/50 transition-colors cursor-pointer"
                       >
                         <div className="flex flex-col items-center text-center min-w-[60px]">
@@ -174,7 +175,7 @@ export default function DashboardPage() {
                             with {groomer?.firstName}
                           </p>
                         </div>
-                      </div>
+                      </Link>
                     );
                   })
                 )}
@@ -199,8 +200,9 @@ export default function DashboardPage() {
                   const pet = getPetById(appointment.services[0]?.petId);
 
                   return (
-                    <div
+                    <Link
                       key={appointment.id}
+                      href={`/appointments/${appointment.id}`}
                       className="flex items-center gap-3 p-3 rounded-md hover:bg-muted/50 transition-colors"
                     >
                       {pet && (
@@ -223,7 +225,7 @@ export default function DashboardPage() {
                         </p>
                       </div>
                       <StatusDot status={appointment.status} />
-                    </div>
+                    </Link>
                   );
                 })}
               </div>

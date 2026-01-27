@@ -31,6 +31,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { EmptyState } from "@/components/data-display/empty-state";
 import { cn, formatCurrency } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 import {
   Search,
   Plus,
@@ -131,6 +132,7 @@ const statusConfig: Record<InvoiceStatus, { label: string; variant: "default" | 
 };
 
 export default function InvoicesPage() {
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = React.useState("");
   const [statusFilter, setStatusFilter] = React.useState<InvoiceStatus | "all">("all");
 
@@ -272,7 +274,7 @@ export default function InvoicesPage() {
                 const StatusIcon = config.icon;
 
                 return (
-                  <TableRow key={invoice.id}>
+                  <TableRow key={invoice.id} className="cursor-pointer" onClick={() => router.push(`/invoices/${invoice.id}`)}>
                     <TableCell>
                       <div>
                         <p className="font-medium">{invoice.number}</p>
@@ -349,7 +351,7 @@ export default function InvoicesPage() {
           description={searchQuery || statusFilter !== "all" ? "Try adjusting your filters" : "Create your first invoice to get started"}
           action={{
             label: "New Invoice",
-            onClick: () => {},
+            onClick: () => router.push("/invoices/new"),
           }}
         />
       )}

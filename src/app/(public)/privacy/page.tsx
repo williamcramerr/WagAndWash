@@ -155,23 +155,25 @@ export default function PrivacyPage() {
           </p>
         </div>
 
-        {/* Footer */}
-        <div className="mt-12 pt-8 border-t">
-          <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-            <Link href="/terms" className="hover:text-foreground">
-              Terms of Service
-            </Link>
-            <span>•</span>
-            <Link href="/book" className="hover:text-foreground">
-              Book an Appointment
-            </Link>
-            <span>•</span>
-            <Link href="/" className="hover:text-foreground">
-              Home
-            </Link>
-          </div>
-        </div>
       </div>
+
+      {/* Footer */}
+      <footer className="border-t py-8">
+        <div className="container flex flex-col md:flex-row items-center justify-between gap-4">
+          <Link href="/" className="flex items-center gap-2">
+            <Dog className="h-6 w-6 text-primary" />
+            <span className="font-bold">WagAndWash</span>
+          </Link>
+          <div className="flex items-center gap-6 text-sm text-muted-foreground">
+            <Link href="/privacy" className="hover:text-foreground">Privacy</Link>
+            <Link href="/terms" className="hover:text-foreground">Terms</Link>
+            <Link href="/contact" className="hover:text-foreground">Contact</Link>
+          </div>
+          <p className="text-sm text-muted-foreground">
+            © 2025 WagAndWash. All rights reserved.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }

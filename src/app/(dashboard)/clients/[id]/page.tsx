@@ -446,43 +446,45 @@ function AppointmentRow({ appointment }: { appointment: Appointment }) {
     .join(", ");
 
   return (
-    <Card>
-      <CardContent className="py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="text-center min-w-[60px]">
-              <div className="text-lg font-bold">
-                {formatTime(appointment.startTime)}
+    <Link href={`/appointments/${appointment.id}`}>
+      <Card className="hover:bg-muted/50 transition-colors cursor-pointer">
+        <CardContent className="py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="text-center min-w-[60px]">
+                <div className="text-lg font-bold">
+                  {formatTime(appointment.startTime)}
+                </div>
+                <div className="text-xs text-muted-foreground">
+                  {formatDate(appointment.startTime)}
+                </div>
               </div>
-              <div className="text-xs text-muted-foreground">
-                {formatDate(appointment.startTime)}
+              <Separator orientation="vertical" className="h-12" />
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="font-medium">{serviceNames}</span>
+                  <StatusBadge status={appointment.status} />
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  with {groomer?.firstName} {groomer?.lastName}
+                </p>
               </div>
             </div>
-            <Separator orientation="vertical" className="h-12" />
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-medium">{serviceNames}</span>
-                <StatusBadge status={appointment.status} />
+            <div className="text-right">
+              <div className="font-semibold">
+                {formatCurrency(appointment.totalPrice)}
               </div>
-              <p className="text-sm text-muted-foreground">
-                with {groomer?.firstName} {groomer?.lastName}
-              </p>
+              {appointment.isMobile && (
+                <Badge variant="outline" className="text-xs">
+                  <MapPin className="h-3 w-3 mr-1" />
+                  Mobile
+                </Badge>
+              )}
             </div>
           </div>
-          <div className="text-right">
-            <div className="font-semibold">
-              {formatCurrency(appointment.totalPrice)}
-            </div>
-            {appointment.isMobile && (
-              <Badge variant="outline" className="text-xs">
-                <MapPin className="h-3 w-3 mr-1" />
-                Mobile
-              </Badge>
-            )}
-          </div>
-        </div>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+    </Link>
   );
 }
 
