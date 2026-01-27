@@ -141,7 +141,10 @@ export function Header({ onMenuClick, showMenuButton = false }: HeaderProps) {
               />
             </div>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="justify-center text-primary">
+            <DropdownMenuItem
+              className="justify-center text-primary"
+              onClick={() => router.push("/notifications")}
+            >
               View all notifications
             </DropdownMenuItem>
           </DropdownMenuContent>
@@ -167,20 +170,23 @@ export function Header({ onMenuClick, showMenuButton = false }: HeaderProps) {
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={() => router.push("/profile")}>
               <User className="mr-2 h-4 w-4" />
               Profile
             </DropdownMenuItem>
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={() => router.push("/settings")}>
               <Settings className="mr-2 h-4 w-4" />
               Settings
             </DropdownMenuItem>
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={() => router.push("/support")}>
               <HelpCircle className="mr-2 h-4 w-4" />
               Help & Support
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="text-destructive focus:text-destructive">
+            <DropdownMenuItem
+              className="text-destructive focus:text-destructive"
+              onClick={() => router.push("/login")}
+            >
               <LogOut className="mr-2 h-4 w-4" />
               Log out
             </DropdownMenuItem>

@@ -28,6 +28,8 @@ import {
   ChevronRight,
   Sparkles,
   LucideIcon,
+  FileText,
+  Clock,
 } from "lucide-react";
 
 interface NavItem {
@@ -48,6 +50,8 @@ const mainNavigation: NavItem[] = [
 
 const secondaryNavigation: NavItem[] = [
   { name: "Payments", href: "/payments", icon: CreditCard },
+  { name: "Invoices", href: "/invoices", icon: FileText },
+  { name: "Waitlist", href: "/waitlist", icon: Clock },
   { name: "Reports", href: "/reports", icon: BarChart3 },
   { name: "Team", href: "/team", icon: UserCog },
   { name: "Settings", href: "/settings", icon: Settings },
