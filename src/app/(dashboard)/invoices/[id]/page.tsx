@@ -42,6 +42,7 @@ import {
   User,
   Dog,
   AlertCircle,
+  Pencil,
 } from "lucide-react";
 import { format, subDays } from "date-fns";
 import { getClientById } from "@/lib/mock-data";
@@ -160,6 +161,12 @@ export default function InvoiceDetailPage() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
+                {(invoice.status === "draft" || invoice.status === "sent") && (
+                  <DropdownMenuItem onClick={() => router.push(`/invoices/${params.id}/edit`)}>
+                    <Pencil className="h-4 w-4 mr-2" />
+                    Edit Invoice
+                  </DropdownMenuItem>
+                )}
                 <DropdownMenuItem>
                   <Printer className="h-4 w-4 mr-2" />
                   Print

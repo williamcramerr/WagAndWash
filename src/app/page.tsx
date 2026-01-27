@@ -455,6 +455,14 @@ export default function LandingPage() {
               </Card>
             ))}
           </div>
+          <div className="text-center mt-12">
+            <Button variant="link" asChild>
+              <Link href="/pricing">
+                Compare all features and plans
+                <ArrowRight className="ml-1 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
 
